@@ -1,6 +1,6 @@
 # Parte 2
 
-## Bloco 1 — Variáveis: `var`, `let` e `const`
+## Bloco 1 — Variáveis
 
 ### O problema
 
