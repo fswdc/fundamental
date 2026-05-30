@@ -38,15 +38,15 @@ completed = 1;
 completed = 2;
 ```
 
-**Finalidade**: declarar uma variável cujo valor pode ser substituído posteriormente.
+**Finalidade.** `let` é uma declaração que reserva um espaço nomeado na memória e permite que o valor armazenado nesse espaço seja substituído posteriormente.
 
-**Motivação**: o valor precisa mudar conforme o programa avança.
+**Motivação.** Certos valores mudam conforme o programa avança — uma contagem que cresce, um estado que alterna. Para esses casos, a declaração precisa permitir reatribuição.
 
-**Decisão técnica**: `let` em vez de `var` porque o escopo de bloco é previsível e seguro; `let` em vez de `const` porque haverá reatribuição.
+**Decisão.** `let` em vez de `var` porque o escopo de bloco é previsível e seguro; `let` em vez de `const` porque haverá reatribuição.
 
-**Localização e uso**: a variável `completed` existe a partir da linha de declaração até o fim do bloco que a contém. Qualquer linha dentro desse bloco pode lê-la ou substituí-la.
+**Localização.** A variável `completed` existe a partir da linha de declaração até o fim do bloco que a contém. Qualquer linha dentro desse bloco pode lê-la ou substituí-la.
 
-**Contrafactual**: omitir a declaração e tentar usar o nome diretamente faz o Node.js interromper a execução com `ReferenceError: completed is not defined`. Usar `var` no lugar produz comportamento funcionalmente igual neste exemplo simples, mas o escopo se torna imprevisível em estruturas mais complexas, o que será visto nas próximas aulas.
+**Contrafactual.** Omitir a declaração e tentar usar o nome diretamente faz o Node.js interromper a execução com `ReferenceError: completed is not defined`. Usar `var` no lugar produz comportamento funcionalmente igual neste exemplo simples, mas o escopo se torna imprevisível em estruturas mais complexas, o que será visto nas próximas aulas.
 
 ---
 
@@ -62,15 +62,15 @@ Exemplo concreto: o nome do projeto é fixo. Esse é um candidato natural a `con
 const project = 'Tasks';
 ```
 
-**Finalidade**: declarar um nome que aponta para um valor fixo, protegendo contra substituição acidental.
+**Finalidade.** `const` é uma declaração que reserva um espaço nomeado na memória e impede que esse nome seja associado a outro valor após a declaração.
 
-**Motivação**: a maioria dos valores em um programa bem escrito não precisa mudar. Usar `const` como padrão força a reflexão consciente sobre quando um valor realmente muda — esse pensamento é, em si, uma prática de qualidade.
+**Motivação.** A maioria dos valores em um programa bem escrito não precisa mudar. Usar `const` como padrão força a reflexão consciente sobre quando um valor realmente muda — esse pensamento é, em si, uma prática de qualidade.
 
-**Decisão técnica**: `const` em vez de `let` porque não haverá reatribuição. `const` não significa que o valor é imutável em todos os sentidos — esse detalhe será visto mais à frente no curso. Por ora, o que importa é: `const` proíbe substituição do nome por outro valor.
+**Decisão.** `const` em vez de `let` porque não haverá reatribuição. `const` não significa que o valor é imutável em todos os sentidos — esse detalhe será visto mais à frente no curso. Por ora, o que importa é: `const` proíbe substituição do nome por outro valor.
 
-**Localização e uso**: `project` existe a partir da linha de declaração até o fim do bloco. Qualquer tentativa de fazer `project = 'Other Things';` depois resulta em `TypeError: Assignment to constant variable`.
+**Localização.** `project` existe a partir da linha de declaração até o fim do bloco. Qualquer tentativa de fazer `project = 'Other Things';` depois resulta em `TypeError: Assignment to constant variable`.
 
-**Contrafactual**: usar `let` onde `const` seria suficiente não impede o funcionamento do código — mas elimina a proteção contra reatribuição acidental e envia um sinal incorreto para quem lê o código: *"esse valor pode mudar"*, quando na verdade não muda.
+**Contrafactual.** Usar `let` onde `const` seria suficiente não impede o funcionamento do código — mas elimina a proteção contra reatribuição acidental e envia um sinal incorreto para quem lê o código: *"esse valor pode mudar"*, quando na verdade não muda.
 
 ---
 
@@ -102,9 +102,9 @@ const name = 'Alex';
 const greeting = 'Hello!';
 ```
 
-**Contexto de aplicação**: nomes, títulos, descrições, endereços de e-mail — qualquer dado que o usuário digita ou que o programa exibe como texto.
+**Aplicação.** Nomes, títulos, descrições, endereços de e-mail — qualquer dado que o usuário digita ou que o programa exibe como texto.
 
-**Justificativa de existência**: sem um tipo dedicado a texto, o programa não teria como representar a diferença entre o número `42` e o texto `'42'` — e essa diferença importa, como será visto no Bloco 5.
+**Justificativa.** Sem um tipo dedicado a texto, o programa não teria como representar a diferença entre o número `42` e o texto `'42'` — e essa diferença importa, como será visto no Bloco 5.
 
 ---
 
@@ -118,9 +118,9 @@ const amount = 5;
 const price = 19.90;
 ```
 
-**Contexto de aplicação**: contagens, preços, índices, resultados de cálculos, qualquer grandeza mensurável.
+**Aplicação.** Contagens, preços, índices, resultados de cálculos, qualquer grandeza mensurável.
 
-**Justificativa de existência**: números precisam de operações matemáticas — soma, subtração, comparação de magnitude. Texto não. Ter tipos separados permite que a linguagem saiba quais operações fazem sentido.
+**Justificativa.** Números precisam de operações matemáticas — soma, subtração, comparação de magnitude. Texto não. Ter tipos separados permite que a linguagem saiba quais operações fazem sentido.
 
 ---
 
@@ -134,9 +134,9 @@ const completed = true;
 const logged = false;
 ```
 
-**Contexto de aplicação**: estados binários — algo está ativo ou inativo, marcado ou não marcado, permitido ou proibido.
+**Aplicação.** Estados binários — algo está ativo ou inativo, marcado ou não marcado, permitido ou proibido.
 
-**Justificativa de existência**: decisões em programas são sempre binárias no nível mais fundamental. Esse usuário está autenticado? Sim ou não. Essa tarefa está concluída? Sim ou não. O tipo `boolean` é o tipo das decisões.
+**Justificativa.** Decisões em programas são sempre binárias no nível mais fundamental. Esse usuário está autenticado? Sim ou não. Essa tarefa está concluída? Sim ou não. O tipo `boolean` é o tipo das decisões.
 
 ---
 
@@ -148,15 +148,15 @@ const logged = false;
 const complement = null;
 ```
 
-**Contexto de aplicação**: um endereço que não foi informado — `complement` tem seu valor igual a `null`. O campo existe, mas o valor não foi disponibilizado. A ausência é intencional.
+**Aplicação.** Um endereço que não foi informado — `complement` tem seu valor igual a `null`. O campo existe, mas o valor não foi disponibilizado. A ausência é intencional.
 
-**Justificativa de existência**: representar ausência de forma explícita e controlada. A presença de `null` indica que alguém atribuiu aquele valor deliberadamente.
+**Justificativa.** Representar ausência de forma explícita e controlada é necessário para distingui-la de ausência acidental. A presença de `null` indica que alguém atribuiu aquele valor deliberadamente.
 
 ---
 
 #### `undefined` — ausência não intencional de valor
 
-`undefined` significa que algo existe como nome, mas nenhum valor foi atribuído a ele. O JavaScript atribui `undefined` automaticamente quando uma variável é declarada sem valor atribuído.
+`undefined` significa que algo existe como nome, mas nenhum valor foi atribuído a ele. O JavaScript atribui `undefined` automaticamente quando uma variável é declarada sem valor atribuído. Isso se aplica a variáveis declaradas com `let` ou `var`. Com `const`, omitir o valor na declaração gera erro de sintaxe — `const` exige atribuição imediata.
 
 ```javascript
 let description;
@@ -164,9 +164,9 @@ let description;
 console.log(description); // undefined
 ```
 
-**Contexto de aplicação**: `undefined` raramente é atribuído manualmente. Ele aparece quando uma variável foi declarada mas ainda não preenchida, ou quando se acessa algo que não existe — conceito que virá nas próximas aulas.
+**Aplicação.** `undefined` raramente é atribuído manualmente. Ele aparece quando uma variável foi declarada mas ainda não preenchida, ou quando se acessa algo que não existe — conceito que virá nas próximas aulas.
 
-**Justificativa de existência**: distinguir *"vazio"* (`null`) de *"não definido"* (`undefined`). A distinção parece sutil agora, mas se torna importante quando o programa precisa saber se um valor é intencionalmente nulo ou simplesmente inexistente.
+**Justificativa.** Distinguir *"vazio"* (`null`) de *"não definido"* (`undefined`) é necessário para que o programa saiba se uma ausência é intencional ou simplesmente resultado de uma variável ainda não preenchida. A distinção parece sutil agora, mas se torna importante quando o programa precisa saber se um valor é intencionalmente nulo ou simplesmente inexistente.
 
 ---
 
@@ -175,14 +175,14 @@ console.log(description); // undefined
 `bigint` existe para números inteiros maiores do que o `number` consegue representar com precisão. Um `number` tem um limite máximo seguro; acima dele, operações matemáticas começam a produzir resultados incorretos. `bigint` não tem esse limite.
 
 ```javascript
-let protocol = 9007199254740999n;
+const protocol = 9007199254740999n;
 ```
 
 O sufixo `n` ao final do literal é o que torna o valor um `bigint`.
 
-**Contexto de aplicação**: identificadores de banco de dados gerados por sistemas de grande escala, cálculos financeiros de alta precisão, criptografia. `bigint` não será utilizado nas primeiras aulas; ele aparece neste inventário porque faz parte do sistema de tipos da linguagem.
+**Aplicação.** Identificadores de banco de dados gerados por sistemas de grande escala, cálculos financeiros de alta precisão, criptografia. `bigint` não será utilizado nas primeiras aulas; ele aparece neste inventário porque faz parte do sistema de tipos da linguagem.
 
-**Justificativa de existência**: o tipo `number` usa um formato de ponto flutuante de 64 bits que não consegue representar todos os inteiros acima de um certo limite. `bigint` preenche essa lacuna para casos que exigem precisão absoluta em números muito grandes.
+**Justificativa.** O tipo `number` usa um formato de ponto flutuante de 64 bits que não consegue representar todos os inteiros acima de um certo limite. `bigint` preenche essa lacuna para casos que exigem precisão absoluta em números muito grandes.
 
 ---
 
@@ -196,9 +196,9 @@ const primary = Symbol('id');
 const foreign = Symbol('id');
 ```
 
-**Contexto de aplicação**: chaves únicas, identificadores que não devem colidir com outras propriedades. `symbol` não será utilizado nas primeiras aulas; ele aparece aqui pelo mesmo motivo que `bigint`.
+**Aplicação.** Chaves únicas, identificadores que não devem colidir com outras propriedades. `symbol` não será utilizado nas primeiras aulas; ele aparece aqui pelo mesmo motivo que `bigint`.
 
-**Justificativa de existência**: em sistemas grandes, existe o risco de partes diferentes usarem o mesmo valor sem saber. `symbol` elimina esse risco porque cada símbolo é garantidamente único.
+**Justificativa.** Em sistemas grandes, existe o risco de partes diferentes usarem o mesmo valor sem saber. `symbol` elimina esse risco porque cada símbolo é garantidamente único.
 
 ---
 
@@ -230,19 +230,19 @@ console.log(typeof date); // 'object'
 console.log(typeof description); // 'undefined'
 ```
 
-**Finalidade**: inspecionar o tipo de um valor em tempo de execução — ou seja, enquanto o programa está rodando.
+**Finalidade.** `typeof` é um operador que inspeciona o tipo de um valor em tempo de execução — ou seja, enquanto o programa está rodando.
 
-**Motivação**: em aulas futuras será necessário tomar decisões com base no tipo de um valor recebido. Antes de operar sobre algo, é possível verificar o que ele é.
+**Motivação.** Em aulas futuras será necessário tomar decisões com base no tipo de um valor recebido. Antes de operar sobre algo, é possível verificar o que ele é.
 
-**Decisão técnica**: `typeof` em vez de qualquer outra abordagem porque é nativo da linguagem, não exige importação de nada e funciona sobre qualquer valor, inclusive `undefined`.
+**Decisão.** `typeof` em vez de qualquer outra abordagem porque é nativo da linguagem, não exige importação de nada e funciona sobre qualquer valor, inclusive `undefined`.
 
-**Localização e uso**: `typeof` é escrito imediatamente antes do valor ou do nome da variável a ser inspecionada. O resultado é sempre uma `string` com o nome do tipo.
+**Localização.** `typeof` é escrito imediatamente antes do valor ou do nome da variável a ser inspecionada. O resultado é sempre uma `string` com o nome do tipo.
 
-**Contrafactual**: sem `typeof`, não haveria como perguntar ao runtime qual é o tipo de um valor de origem desconhecida. O programa operaria às cegas sobre dados externos e produziria erros difíceis de diagnosticar.
+**Contrafactual.** Sem `typeof`, não haveria como perguntar ao runtime qual é o tipo de um valor de origem desconhecida. O programa operaria às cegas sobre dados externos e produziria erros difíceis de diagnosticar.
 
 ---
 
-### A armadilha do null
+### A armadilha do `null`
 
 Observe a linha de `date` no exemplo acima. `typeof null` retorna `'object'` — não `'null'`.
 
@@ -255,15 +255,15 @@ const date = null;
 console.log(date === null); // true
 ```
 
-**Finalidade**: comparar o valor de `date` com `null` usando igualdade estrita.
+**Finalidade.** `date === null` é uma comparação que verifica se o valor de `date` é especificamente `null`.
 
-**Motivação**: `typeof null` retorna `'object'`, tornando `typeof` inutilizável para este caso específico.
+**Motivação.** `typeof null` retorna `'object'`, tornando `typeof` inutilizável para este caso específico.
 
-**Decisão técnica**: `===` para comparação — operadores de comparação serão explicados na próxima aula. Por ora, registre que `===` é o operador de igualdade estrita no JavaScript.
+**Decisão.** `===` é o operador de igualdade estrita em JavaScript — operadores de comparação serão explicados na próxima aula. Por ora, o que importa é que `===` compara valor e tipo sem conversão automática.
 
-**Localização e uso**: esta comparação aparece em qualquer ponto do programa onde é necessário verificar se um valor é especificamente `null`.
+**Localização.** Esta comparação aparece em qualquer ponto do programa onde é necessário verificar se um valor é especificamente `null`.
 
-**Contrafactual**: usar `typeof date === 'null'` faz a comparação sempre retornar `false` — porque `typeof null` retorna `'object'`, nunca `'null'`. O bug silencioso passaria despercebido.
+**Contrafactual.** Usar `typeof date === 'null'` faz a comparação sempre retornar `false` — porque `typeof null` retorna `'object'`, nunca `'null'`. O bug silencioso passaria despercebido.
 
 ---
 
@@ -295,15 +295,15 @@ const name = 'Alex';
 const greeting = `Hello, ${name}!`;
 ```
 
-**Finalidade**: construir strings que incorporam valores de variáveis ou resultados de expressões sem concatenação manual.
+**Finalidade.** *Template strings* são strings delimitadas por crases que permitem incorporar valores de variáveis ou resultados de expressões diretamente no texto, sem concatenação manual.
 
-**Motivação**: já existem variáveis com valores e é necessária uma forma legível de combiná-los em texto.
+**Motivação.** Quando existem variáveis com valores e é necessária uma forma legível de combiná-los em texto, a concatenação com `+` se torna difícil de ler e fácil de errar à medida que o número de valores cresce.
 
-**Decisão técnica**: crase em vez de aspas simples ou duplas porque aspas não suportam interpolação.
+**Decisão.** Crase em vez de aspas simples ou duplas porque aspas não suportam interpolação.
 
-**Localização e uso**: sempre que for necessário construir um texto que depende de valores calculados ou armazenados em variáveis. O `${}` aceita qualquer expressão JavaScript válida — não apenas nomes de variáveis, mas também operações ou qualquer coisa que produza valor.
+**Localização.** *Template strings* são empregadas sempre que for necessário construir um texto que depende de valores calculados ou armazenados em variáveis. O `${}` aceita qualquer expressão JavaScript válida — não apenas nomes de variáveis, mas também operações ou qualquer coisa que produza valor.
 
-**Contrafactual**: usar aspas simples ou duplas e escrever `${name}` dentro delas não produz interpolação — o JavaScript trata o conteúdo como texto literal e exibe `${name}` na tela.
+**Contrafactual.** Usar aspas simples ou duplas e escrever `${name}` dentro delas não produz interpolação — o JavaScript trata o conteúdo como texto literal e exibe `${name}` na tela.
 
 ---
 
@@ -318,15 +318,15 @@ const message = `Hello, ${name}!
 Welcome to the JavaScript course!`;
 ```
 
-**Finalidade**: representar texto que ocupa mais de uma linha sem nenhum caractere especial adicional.
+**Finalidade.** *Template strings* multilinhas representam texto que ocupa mais de uma linha sem nenhum caractere especial adicional.
 
-**Motivação**: textos longos são comuns em sistemas reais — mensagens, descrições, templates de e-mail. Forçar tudo em uma linha prejudica a leitura do código.
+**Motivação.** Textos longos são comuns em sistemas reais — mensagens, descrições, templates de e-mail. Forçar tudo em uma linha prejudica a leitura do código.
 
-**Decisão técnica**: crase em vez de aspas porque aspas simples e duplas não suportam quebra de linha literal; nenhuma alternativa dentro da sintaxe de strings comuns resolve o problema sem o uso de `\n`.
+**Decisão.** Crase em vez de aspas porque aspas simples e duplas não suportam quebra de linha literal; nenhuma alternativa dentro da sintaxe de strings comuns resolve o problema sem o uso de `\n`.
 
-**Localização e uso**: empregado em qualquer ponto do código onde o texto a ser representado abrange mais de uma linha e a legibilidade da quebra literal é preferível ao uso de `\n`.
+**Localização.** Empregada em qualquer ponto do código onde o texto a ser representado abrange mais de uma linha e a legibilidade da quebra literal é preferível ao uso de `\n`.
 
-**Contrafactual**: usar aspas simples e quebrar a linha dentro do texto faz o Node.js apresentar o erro `SyntaxError: Invalid or unexpected token`. A quebra de linha literal não é permitida dentro de aspas.
+**Contrafactual.** Usar aspas simples e quebrar a linha dentro do texto faz o Node.js apresentar o erro `SyntaxError: Invalid or unexpected token`. A quebra de linha literal não é permitida dentro de aspas.
 
 ---
 
@@ -374,7 +374,7 @@ O padrão que emerge desses três casos:
 
 O JavaScript nunca interrompe a operação por incompatibilidade de tipos — ele sempre tenta encontrar uma conversão que faça sentido. O problema é que o resultado dessa tentativa nem sempre corresponde ao esperado.
 
-**Justificativa de existência da coerção implícita**: o JavaScript foi projetado para ser tolerante a erros em um ambiente de navegador, onde interromper a execução causaria uma página quebrada visível ao usuário. Essa tolerância tem um custo: comportamentos surpreendentes que exigem conhecimento explícito para serem antecipados.
+**Justificativa.** O JavaScript foi projetado para ser tolerante a erros em um ambiente de navegador, onde interromper a execução causaria uma página quebrada visível ao usuário. Essa tolerância tem um custo: comportamentos surpreendentes que exigem conhecimento explícito para serem antecipados.
 
 ---
 
@@ -396,13 +396,15 @@ console.log(converted); // 30
 console.log(typeof converted); // 'number'
 ```
 
-**Finalidade**: transformar um valor de outro tipo em número.
+**Finalidade.** `Number()` é uma função nativa que recebe um valor e devolve sua representação numérica.
 
-**Motivação**: valores que chegam de formulários ou de fontes externas frequentemente chegam como texto, mesmo quando representam quantidades. A conversão explícita precede qualquer cálculo.
+**Motivação.** Valores que chegam de formulários ou de fontes externas frequentemente chegam como texto, mesmo quando representam quantidades. A conversão explícita precede qualquer cálculo.
 
-**Decisão técnica**: `Number()` em vez de deixar a coerção implícita agir, porque coerção implícita depende do operador usado e pode produzir resultados inesperados. A conversão explícita documenta a intenção.
+**Decisão.** `Number()` em vez de deixar a coerção implícita agir, porque coerção implícita depende do operador usado e pode produzir resultados inesperados. A conversão explícita documenta a intenção.
 
-**Contrafactual**: `Number('abc')` retorna `NaN` — *Not a Number* (Não é um Número), um valor especial que indica falha na conversão. Qualquer operação matemática com `NaN` produz `NaN`. Isso será útil para detectar entradas inválidas em aulas futuras.
+**Localização.** `Number()` é empregada em qualquer ponto do código onde um valor de tipo desconhecido ou textual precisa ser tratado como número antes de uma operação matemática.
+
+**Contrafactual.** `Number('abc')` retorna `NaN` — *Not a Number* (Não é um Número), um valor especial que indica falha na conversão. Qualquer operação matemática com `NaN` produz `NaN`. Isso será útil para detectar entradas inválidas em aulas futuras.
 
 ---
 
@@ -416,11 +418,15 @@ console.log(converted); // '5'
 console.log(typeof converted); // 'string'
 ```
 
-**Finalidade**: transformar um valor de outro tipo em texto.
+**Finalidade.** `String()` é uma função nativa que recebe um valor e devolve sua representação textual.
 
-**Motivação**: números, booleanos e outros valores precisam ser exibidos como texto em mensagens e interfaces. `String()` é a conversão explícita e segura para isso.
+**Motivação.** Números, booleanos e outros valores precisam ser exibidos como texto em mensagens e interfaces. `String()` é a conversão explícita e segura para isso.
 
-**Contrafactual**: seria possível usar *template string* para o mesmo resultado — `${amount}` produz `'5'`. As duas formas são válidas; `String()` é mais explícita quando a intenção é exclusivamente converter o tipo.
+**Decisão.** `String()` em vez de concatenação com `+` ou *template string* porque o uso explícito da função documenta que a intenção é exclusivamente converter o tipo, sem construir texto composto.
+
+**Localização.** `String()` é empregada em qualquer ponto do código onde um valor não textual precisa ser tratado como `string` — especialmente antes de exibi-lo ou combiná-lo com outros textos.
+
+**Contrafactual.** Seria possível usar *template string* para o mesmo resultado — `${amount}` produz `'5'`. As duas formas são válidas; `String()` é mais explícita quando a intenção é exclusivamente converter o tipo.
 
 ---
 
@@ -435,11 +441,15 @@ console.log(Boolean(null)); // false
 console.log(Boolean(undefined)); // false
 ```
 
-**Finalidade**: transformar qualquer valor em `true` ou `false`.
+**Finalidade.** `Boolean()` é uma função nativa que recebe qualquer valor e devolve `true` ou `false` conforme a interpretação da linguagem.
 
-**Motivação**: decisões em programas são binárias. Em aulas futuras serão escritas condições que precisam avaliar se um valor *"conta como verdadeiro"* ou *"conta como falso"*. `Boolean()` torna essa avaliação explícita e visível.
+**Motivação.** Decisões em programas são binárias. Em aulas futuras serão escritas condições que precisam avaliar se um valor *"conta como verdadeiro"* ou *"conta como falso"*. `Boolean()` torna essa avaliação explícita e visível.
 
-**Localização e uso**: usado em qualquer ponto onde é necessário saber se um valor é considerado verdadeiro ou falso pela linguagem — especialmente antes de estruturas de decisão, que serão introduzidas na próxima aula.
+**Decisão.** `Boolean()` em vez de depender da coerção implícita em estruturas de decisão porque a conversão explícita antecipa e documenta o comportamento, evitando resultados inesperados.
+
+**Localização.** `Boolean()` é empregada em qualquer ponto onde é necessário saber se um valor é considerado verdadeiro ou falso pela linguagem — especialmente antes de estruturas de decisão, que serão introduzidas na próxima aula.
+
+**Contrafactual.** Sem `Boolean()`, a avaliação de verdadeiro ou falso ocorreria implicitamente dentro das estruturas de decisão, sem que o resultado fosse visível ou previsível para quem lê o código.
 
 ---
 

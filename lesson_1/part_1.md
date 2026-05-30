@@ -8,7 +8,7 @@ A verificação cobre três ferramentas: Node.js, Git e VSCode. Execute cada com
 
 ### Verificação 1 — Node.js
 
-``` shell
+```shell
 node --version
 ```
 
@@ -18,7 +18,7 @@ O resultado esperado é um número de versão iniciado por `24.x.x` ou superior.
 
 ### Verificação 2 — Git
 
-``` shell
+```shell
 git --version
 ```
 
@@ -28,7 +28,7 @@ O resultado esperado é um número de versão iniciado por `2.5x.x` ou superior.
 
 ### Verificação 3 — VSCode
 
-``` shell
+```shell
 code --version
 ```
 
@@ -48,8 +48,7 @@ No módulo anterior, foram trabalhadas duas linguagens. Cada uma pertence a uma 
 
 Existe uma terceira categoria: linguagem de programação. Uma linguagem de programação não descreve — ela instrui. Ela é capaz de tomar decisões (*"se isso for verdade, faça aquilo"*), repetir operações (*"faça isso dez vezes"*), manipular dados (*"guarde este valor, some com aquele"*) e executar ações em resposta a eventos.
 
-**JavaScript** é a linguagem de programação deste módulo.
-Não há conteúdo novo aqui — só o encaixe do que vem a seguir no mapa já construído.
+**JavaScript** é a linguagem de programação deste módulo. Não há conteúdo novo aqui — só o encaixe do que vem a seguir no mapa já construído.
 
 ---
 
@@ -57,7 +56,7 @@ Não há conteúdo novo aqui — só o encaixe do que vem a seguir no mapa já c
 
 Considere uma página de loja de bicicletas construída com HTML e CSS. A página tem uma lista de produtos, cada um com nome, imagem e preço. Ela é bonita, bem estruturada, mas é estática: o conteúdo nunca muda, nada responde a cliques, nenhum dado é guardado.
 
-Agora considere que um usuário clica em *"Adicionar ao carrinho"*. Para que algo aconteça de fato — para que o produto apareça no carrinho, para que o total seja calculado, para que o botão mude de aparência —, alguém precisa decidir o que fazer com aquele clique. HTML não decide. CSS não decide. Quem decide é JavaScript.
+Agora considere que um usuário clica em *"Adicionar ao carrinho"*. Para que algo aconteça de fato — para que o produto apareça no carrinho, para que o total seja calculado, para que o botão mude de aparência — alguém precisa decidir o que fazer com aquele clique. HTML não decide. CSS não decide. Quem decide é JavaScript.
 
 JavaScript é uma linguagem de programação criada originalmente para o navegador. Surgiu nos anos 90 com um propósito específico: ser a linguagem que roda dentro das páginas na Web e as torna interativas. Com o tempo, tornou-se a linguagem padrão da Web — todo navegador do mundo a executa nativamente, sem instalação adicional.
 
@@ -73,7 +72,7 @@ Pense em uma receita escrita em papel. A receita descreve com precisão o que fa
 
 Com JavaScript funciona da mesma forma.
 
-JavaScript é uma linguagem — isso significa que é um conjunto de regras que define o que pode ser escrito e o que cada construção significa. É possível escrever um arquivo `.js` com instruções precisas. Mas esse arquivo, sozinho, não faz nada. Ele é texto. Para que as instruções produzam efeitos reais — para que um cálculo seja feito, para que um elemento apareça na tela, para que um arquivo seja criado —, alguém precisa ler esse código e transformá-lo em ação.
+JavaScript é uma linguagem — isso significa que é um conjunto de regras que define o que pode ser escrito e o que cada construção significa. É possível escrever um arquivo `.js` com instruções precisas. Mas esse arquivo, sozinho, não faz nada. Ele é texto. Para que as instruções produzam efeitos reais — para que um cálculo seja feito, para que um elemento apareça na tela, para que um arquivo seja criado — alguém precisa ler esse código e transformá-lo em ação.
 
 Esse "alguém" é chamado de **runtime**.
 
@@ -137,7 +136,7 @@ O processo ocorre em quatro passos: criar o diretório de trabalho, criar o arqu
 
 No terminal do PowerShell, execute:
 
-``` shell
+```shell
 cd ~
 ```
 
@@ -145,7 +144,7 @@ cd ~
 
 **Motivação**. Garante um ponto de partida conhecido antes de criar qualquer estrutura de diretórios, independentemente de onde o terminal esteja aberto.
 
-**Decisão técnica**. `~` é o atalho universal para o diretório inicial do usuário atual. No Windows com PowerShell, equivale a `C:\Users\username`. Usar `~` em vez do caminho completo torna o comando portável entre usuários e sistemas.
+**Decisão**. `~` é o atalho universal para o diretório inicial do usuário atual. No Windows com PowerShell, equivale a `C:\Users\username`. Usar `~` em vez do caminho completo torna o comando portável entre usuários e sistemas.
 
 **Localização**. Executado no início de qualquer sessão em que seja necessário criar ou acessar estruturas de projeto a partir de uma posição conhecida no sistema de arquivos.
 
@@ -155,7 +154,7 @@ cd ~
 
 Agora execute:
 
-``` shell
+```shell
 mkdir course/fundamental
 ```
 
@@ -163,7 +162,7 @@ mkdir course/fundamental
 
 **Motivação**. Estabelece um local fixo e previsível para todo o trabalho desta Parte. Todos os arquivos `.js` criados nas próximas aulas serão armazenados aqui.
 
-**Decisão técnica**. O nome `fundamental` reflete a nomenclatura do curso. O diretório `course` agrupa todas as partes em um único lugar, evitando que os diretórios de cada parte fiquem espalhados pelo diretório inicial.
+**Decisão**. O nome `fundamental` reflete a nomenclatura do curso. O diretório `course` agrupa todas as partes em um único lugar, evitando que os diretórios de cada parte fiquem espalhados pelo diretório inicial.
 
 **Localização**. Executado uma única vez, no início desta Parte, para estabelecer a estrutura de diretórios que persistirá ao longo de todas as aulas seguintes.
 
@@ -173,7 +172,7 @@ mkdir course/fundamental
 
 Agora entre no diretório criado:
 
-``` shell
+```shell
 cd course/fundamental
 ```
 
@@ -181,7 +180,7 @@ cd course/fundamental
 
 **Motivação**. Todo comando executado a partir daqui opera dentro desse diretório. Isso garante que o arquivo criado no próximo passo fique no lugar correto.
 
-**Decisão técnica**. O caminho `course/fundamental` é relativo ao diretório inicial, para onde o terminal foi direcionado no comando anterior. A sequência `cd ~` seguida de `cd course/fundamental` garante que a navegação funcione independentemente de onde o terminal estava antes.
+**Decisão**. O caminho `course/fundamental` é relativo ao diretório inicial, para onde o terminal foi direcionado no comando anterior. A sequência `cd ~` seguida de `cd course/fundamental` garante que a navegação funcione independentemente de onde o terminal estava antes.
 
 **Localização**. Executado imediatamente após a criação do diretório, e no início de qualquer sessão em que seja necessário retomar o trabalho nesta Parte.
 
@@ -191,7 +190,7 @@ cd course/fundamental
 
 ### Passo 2 — Criar o arquivo
 
-``` shell
+```shell
 New-Item -ItemType File -Name playground.js
 ```
 
@@ -199,7 +198,7 @@ New-Item -ItemType File -Name playground.js
 
 **Motivação**. No PowerShell, não é possível criar um arquivo vazio apenas digitando um nome — é necessário um comando dedicado para essa operação. `New-Item` é o comando nativo do PowerShell para criação de itens no sistema de arquivos, e a flag `-ItemType File` especifica que o item a ser criado é um arquivo.
 
-**Decisão técnica**. A extensão `.js` é obrigatória. É ela que identifica o arquivo como JavaScript — tanto para o Node.js, que vai executá-lo, quanto para o VSCode, que vai ativá-lo com realce de sintaxe e recursos de edição para a linguagem.
+**Decisão**. A extensão `.js` é obrigatória. É ela que identifica o arquivo como JavaScript — tanto para o Node.js, que vai executá-lo, quanto para o VSCode, que vai ativá-lo com realce de sintaxe e recursos de edição para a linguagem.
 
 **Localização**. Executado uma única vez, no início desta Parte, para criar o arquivo de experimentação que será utilizado ao longo das aulas seguintes.
 
@@ -211,7 +210,7 @@ New-Item -ItemType File -Name playground.js
 
 Execute:
 
-``` shell
+```shell
 code .
 ```
 
@@ -219,7 +218,7 @@ code .
 
 **Motivação**. Abrir pelo terminal garante que o VSCode reconhece `fundamental` como a raiz do projeto — o que organiza o explorador de arquivos corretamente. O argumento `.` referencia o diretório atual.
 
-**Decisão técnica**. O comando `code` é instalado pelo VSCode como utilitário de linha de comando. Passar `.` como argumento instrui o VSCode a abrir o diretório inteiro como projeto, não apenas um arquivo isolado.
+**Decisão**. O comando `code` é instalado pelo VSCode como utilitário de linha de comando. Passar `.` como argumento instrui o VSCode a abrir o diretório inteiro como projeto, não apenas um arquivo isolado.
 
 **Localização**. Executado no início de qualquer sessão de desenvolvimento, após a navegação para o diretório de trabalho correto.
 
@@ -229,7 +228,7 @@ code .
 
 Com o VSCode aberto, clique em `playground.js` no explorador de arquivos e escreva exatamente o seguinte:
 
-``` javascript
+```javascript
 console.log('Hello World!');
 ```
 
@@ -239,7 +238,7 @@ Salve o arquivo com `Ctrl + S`.
 
 **Motivação**. Esta é a instrução mais básica de observação em JavaScript — ela permite verificar o resultado de qualquer coisa que o código produza. Será utilizada em toda a primeira fase para observar o comportamento do código.
 
-**Decisão técnica**. O texto está entre aspas simples. Em JavaScript, aspas duplas e aspas simples são equivalentes para definir texto. A escolha entre elas é de consistência — o importante é abrir e fechar com o mesmo tipo.
+**Decisão**. O texto está entre aspas simples. Em JavaScript, aspas duplas e aspas simples são equivalentes para definir texto. A escolha entre elas é de consistência — o importante é abrir e fechar com o mesmo tipo.
 
 **Localização**. Utilizado em qualquer ponto do código em que seja necessário inspecionar um valor ou confirmar que uma instrução foi executada.
 
@@ -251,7 +250,7 @@ Salve o arquivo com `Ctrl + S`.
 
 De volta ao terminal, execute:
 
-``` shell
+```shell
 node playground.js
 ```
 
@@ -259,7 +258,7 @@ node playground.js
 
 **Motivação**. Este é o mecanismo fundamental de execução de JavaScript fora do navegador: o runtime é chamado diretamente pelo terminal, recebendo como argumento o arquivo a ser executado.
 
-**Decisão técnica**. O arquivo é referenciado pelo nome relativo `playground.js`, não pelo caminho absoluto. Isso funciona porque o terminal está posicionado no mesmo diretório onde o arquivo está. A partir de outro diretório, seria necessário o caminho completo ou relativo correto.
+**Decisão**. O arquivo é referenciado pelo nome relativo `playground.js`, não pelo caminho absoluto. Isso funciona porque o terminal está posicionado no mesmo diretório onde o arquivo está. A partir de outro diretório, seria necessário o caminho completo ou relativo correto.
 
 **Localização**. Executado no terminal sempre que for necessário rodar um arquivo JavaScript com Node.js, durante o desenvolvimento e a verificação do código.
 
@@ -269,6 +268,6 @@ node playground.js
 
 O terminal deve exibir:
 
-``` shell
+```shell
 Hello World!
 ```
